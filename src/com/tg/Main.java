@@ -1,16 +1,34 @@
 package com.tg;
 
+import java.util.concurrent.Flow;
+import java.util.function.Function;
+
 public class Main {
     public static void main(String[] args) {
 
-        Runnable run1 = () -> {
-            String myString = "Let's split this up into an array";
-            String[] parts = myString.split(" ");
-            for (String part : parts) {
-                System.out.println(part);
+        //with lambda
+        Function<String, String> lambdaFunction = s -> {
+            StringBuilder returnVal = new StringBuilder();
+            for (int i = 0; i < s.length(); i++) {
+                if (i % 2 == 1) {
+                    returnVal.append(s.charAt(i));
+                }
             }
+            return returnVal.toString();
         };
 
-        new Thread(run1).start();
+        System.out.println(lambdaFunction.apply("1234567890"));
+        System.out.println(everySecondChar("1234567890"));
+    }
+
+    //without lambda
+    public static String everySecondChar(String source) {
+        StringBuilder returnVal = new StringBuilder();
+        for (int i = 0; i < source.length(); i++) {
+            if (i % 2 == 1) {
+                returnVal.append(source.charAt(i));
+            }
+        }
+        return returnVal.toString();
     }
 }
