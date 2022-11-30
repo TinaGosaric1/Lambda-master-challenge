@@ -19,10 +19,12 @@ public class Main {
                 "Jacob"
         );
 
-        topNames2015
+        long namesBeginningWithA = topNames2015
                 .stream()
                 .map(name -> name.substring(0, 1).toUpperCase() + name.substring(1))
-                .sorted(String::compareTo)
-                .forEach(System.out::println);
+                .filter(name -> name.startsWith("A"))
+                .count();
+
+        System.out.println("Number of names beginning with A: " + namesBeginningWithA);
     }
 }
