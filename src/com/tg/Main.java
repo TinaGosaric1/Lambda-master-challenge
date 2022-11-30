@@ -1,6 +1,7 @@
 package com.tg;
 
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,6 +16,8 @@ public class Main {
             return returnVal.toString();
         };
         System.out.println(everySecondCharacter(lambdaFunction, "1234567890"));
+
+        Supplier<String> supplier = () -> "Today is Monday"; // Supplier produces objects
     }
 
     public static String everySecondCharacter(Function<String, String> func, String s1) {
