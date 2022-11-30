@@ -23,8 +23,7 @@ public class Main {
 
         List<String> firstUpperCaseList = new ArrayList<>();
         topNames2015.forEach(name -> firstUpperCaseList.add(name.substring(0, 1).toUpperCase() + name.substring(1)));
-        firstUpperCaseList.sort((s1, s2) -> s1.compareTo(s2));
-        firstUpperCaseList.forEach(s -> System.out.println(s));
-
+        firstUpperCaseList.sort(String::compareTo);
+        firstUpperCaseList.forEach(System.out::println);
     }
 }
